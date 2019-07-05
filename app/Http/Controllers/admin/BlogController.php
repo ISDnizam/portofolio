@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $data['title'] = "Blog";
         $data['list'] = DB::table('module_blog')->get();
@@ -21,7 +25,6 @@ class BlogController extends Controller
 
     public function action_add(Request $request){
         $form = $request->input('form');
-        // insert data ke table pegawai
         DB::table('module_blog')->insert($form);
         return redirect('/admin/blog');
     }
@@ -36,10 +39,7 @@ class BlogController extends Controller
     public function action_edit(Request $request){
         $form = $request->input('form');
         // insert data ke table pegawai
-        DB::table('module_blog')->where('id_blog',$form['id_blog'])->update([
-            'title' => $form['title'],
-            'description' => $form['description'],
-        ]);
+        DB::table('module_blog')->where('id_blog',$form['id_blog'])->update($form);
         return redirect('/admin/blog');
     }
 

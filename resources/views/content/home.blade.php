@@ -289,7 +289,6 @@
                       <li><p><label>Address:</label><span>{{$profile->address}}</span></p></li>
                       <li><p><label>Email:</label><span><a href="mailto:{{$profile->email}}">{{$profile->email}}</a></span></p></li>
                       <li><p><label>Phone:</label><span>{{$profile->phone}}</span></p></li>
-                      <li><p><label>Instagram:</label><span><a href="https://instagram.com/{{$profile->instagram}}">@ {{$profile->instagram}}</a></span></p></li>
                     </ul>
                   </div>
                 </div>

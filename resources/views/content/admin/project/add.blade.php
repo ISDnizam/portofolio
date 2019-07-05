@@ -29,9 +29,36 @@
                         </div>
 
                         <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Client</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="form[client]"/>
+                          </div>
+                        </div>
+
+
+                        <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Description</label>
                           <div class="col-sm-9">
                             <textarea class="form-control" name="form[description]"></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                       <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Category</label>
+                          <div class="col-sm-9">
+                            <select name="form[category]" class="form-control">
+                              <option value="development">Development</option>
+                              <option value="design">Design</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">URL</label>
+                          <div class="col-sm-9">
+                            <input type="url" class="form-control" name="form[url]"/>
                           </div>
                         </div>
                       </div>

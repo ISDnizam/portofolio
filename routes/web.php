@@ -33,3 +33,7 @@ Route::get('blog', 'BlogController@index');
 Route::post('send_message', 'HomeController@send_message');
 Route::get('blog/detail/{nama}', 'BlogController@detail');
 Route::post('blog/send_comment', 'BlogController@send_comment');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

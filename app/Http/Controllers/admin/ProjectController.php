@@ -5,9 +5,17 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Project;
 
 class ProjectController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index(){
         $data['title'] = "Project";
         $data['list'] = DB::table('module_project')->get();
@@ -21,8 +29,7 @@ class ProjectController extends Controller
 
     public function action_add(Request $request){
         $form = $request->input('form');
-        // insert data ke table pegawai
-        DB::table('module_project')->insert($form);
+        Project::create($form);
         return redirect('/admin/project');
     }
 
@@ -35,17 +42,13 @@ class ProjectController extends Controller
 
     public function action_edit(Request $request){
         $form = $request->input('form');
-        // insert data ke table pegawai
-        DB::table('module_project')->where('id_project',$form['id_project'])->update([
-            'title' => $form['title'],
-            'description' => $form['description'],
-        ]);
+        DB::table('module_project')->where('id_project',$form['id_project'])->update($form);
         return redirect('/admin/project');
     }
 
     public  function delete($id_project){
         DB::table('module_project')->where('id_project',$id_project)->delete();
-        return redirect('/admin/project');
+        return redirect()->back();
     }
 
 }

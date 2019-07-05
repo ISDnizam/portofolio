@@ -82,10 +82,39 @@
       <div class="leftpart_inner">
         <div class="logo_wrap">
           <a href="#"><img src="/assets/images/logo.png" alt="" style="height: 120px" /></a>
+                 <!-- Authentication Links -->
+                        @guest
+                        @else
+        <div class="menu_list_wrap">
+
+          <ul class="anchor_nav" style="text-align:left; margin-left:-20px; margin-top: 30px; margin-bottom:-50px">
+                            <li >
+                                <a href="/admin/blog">
+                                    Dashboard
+                                    <!-- {{ Auth::user()->name }} -->
+                                </a>
+                            </li>
+                                
+                            <li >
+
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            </li>
+                          </ul>
+                        </div>
+                        @endguest
         </div>
         <div class="menu_list_wrap">
           <ul class="anchor_nav">
-            <li><a href="/#home">Home</a></li>
+
+            <li><a href="/#home">Homes  </a></li>
             <li><a href="/#about">About</a></li>
             <li><a href="/#portofolio">Project</a></li>
             <!-- <li><a href="/#news">Blog</a></li> -->
