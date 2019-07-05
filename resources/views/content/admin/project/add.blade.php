@@ -17,7 +17,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">{{ $title }}</h4>
-                  <form class="form-sample" action="/admin/project/action_add" method="post">
+                  <form class="form-sample" action="/admin/project/action_add" method="post" enctype="multipart/form-data">
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
                     <div class="row">
                       <div class="col-md-6">
@@ -59,6 +59,13 @@
                           <label class="col-sm-3 col-form-label">URL</label>
                           <div class="col-sm-9">
                             <input type="url" class="form-control" name="form[url]"/>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Image</label>
+                          <div class="col-sm-9">
+                            <input type="file" class="form-control" name="file"/>
                           </div>
                         </div>
                       </div>

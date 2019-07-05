@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Project;
-
+use App\Mail\SendEmail;
+use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
  
@@ -27,6 +28,8 @@ class HomeController extends Controller
     
     public function send_message(Request $request){
         $form = $request->input('form');
+
+ 
         $id = DB::table('module_messages')->insertGetId($form);
         if($id){
             echo 'success';

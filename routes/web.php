@@ -26,6 +26,9 @@ Route::post('admin/project/action_add', 'admin\ProjectController@action_add');
 Route::get('admin/project/edit/{id}', 'admin\ProjectController@edit');
 Route::post('admin/project/action_edit', 'admin\ProjectController@action_edit');
 Route::get('admin/project/delete/{id}', 'admin\ProjectController@delete');
+Route::get('admin/project/images/{id}', 'admin\ProjectController@images');
+Route::get('admin/project/delete_image/{id}', 'admin\ProjectController@delete_image');
+Route::post('admin/project/action_add_images', 'admin\ProjectController@action_add_images');
 
 
 Route::get('project/detail/{nama}', 'ProjectController@detail');
@@ -35,5 +38,5 @@ Route::get('blog/detail/{nama}', 'BlogController@detail');
 Route::post('blog/send_comment', 'BlogController@send_comment');
 
 Auth::routes();
-
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');

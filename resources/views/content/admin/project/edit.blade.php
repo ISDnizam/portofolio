@@ -37,15 +37,6 @@
                           </div>
                         </div>
 
-
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Description</label>
-                          <div class="col-sm-9">
-                            <textarea class="form-control" name="form[description]">{{$p->description}}</textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Category</label>
                           <div class="col-sm-9">
@@ -62,6 +53,26 @@
                             <input type="url" class="form-control" name="form[url]" value="{{$p->url}}"/>
                           </div>
                         </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Image</label>
+                          <div class="col-sm-9">
+                            <input type="file" class="form-control" name="file"/>
+                          </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Description</label>
+                          <div class="col-sm-9">
+                            <textarea class="form-control" name="form[description]">{{$p->description}}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        @if ($p->image !== '')
+                            <img src="{{$p->image}}" style="width: 100%; height: 500px"  >
+                        @endif
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

@@ -33,7 +33,7 @@
 						            @foreach($list as $p)
                         <tr>
                           <td>{{ $p->title }}</td>
-            							<td>{{ $p->description }}</td>
+            							<td>{{ substr($p->description, 0, 50) }} </td>
             							<td>{{ $p->created_at }}</td>
             							<td>
             								<a href="/admin/blog/edit/{{ $p->id_blog }}"  class="btn btn-warning">Edit</a>

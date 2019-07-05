@@ -21,8 +21,8 @@
 
 	<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="#"><img src="/assets/images/logo.png" class="mr-2" alt="logo" style="height: 60px !important" /></a>
-        <a class="navbar-brand brand-logo-mini" href="#"><img src="/assets/images/logo.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="/"><img src="/assets/images/logo.png" class="mr-2" alt="logo" style="height: 60px !important" /></a>
+        <a class="navbar-brand brand-logo-mini" href="/"><img src="/assets/images/logo.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -34,8 +34,15 @@
           <span class="ti-layout-grid2"></span>
         </button>
            <li class="nav-item">
-            <a style="color:white;padding:10px;" class="btn btn-sm btn-danger nav-link" href="/agent/dashboard/logout" >
-            Logout</a>
+
+             <a href="{{ route('logout') }}" style="color:white;padding:10px;" class="btn btn-sm btn-danger nav-link"
+                 onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
           </li>
       </div>
     </nav>
@@ -80,7 +87,7 @@
 
   		<footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://ideaperumnas.com/" target="_blank">pl4y-on.com</a>. All rights reserved.</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="/" target="_blank">nizam.id</a>. All rights reserved.</span>
           </div>
         </footer>
         <!-- partial -->

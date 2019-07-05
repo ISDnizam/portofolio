@@ -18,6 +18,20 @@
               <h4 class="card-title">{{$title}}</h4>
               <div class="row">
                 <div class="col-12">
+                  @if ($message = Session::get('success'))
+                   <div class="alert alert-fill-success" role="alert">
+                    <i class="ti-info-alt"></i>
+                    {{ $message }}
+                  </div>
+                    @endif
+             
+                    @if ($message = Session::get('failed'))
+                    <div class="alert alert-fill-danger" role="alert">
+                      <i class="ti-info-alt"></i>
+                      {{ $message }}
+                    </div>
+                    @endif
+
                   <div class="table-responsive">
                     <table id="order-listing" class="table">
                       <thead>
@@ -32,9 +46,10 @@
 						            @foreach($list as $p)
                         <tr>
                           <td>{{ $p->title }}</td>
-            							<td>{{ $p->description }}</td>
+                          <td>{{ substr($p->description, 0, 50) }} </td>
             							<td>{{ $p->created_at }}</td>
             							<td>
+                            <a href="/admin/project/images/{{ $p->id_project }}"  class="btn btn-primary">View Images</a>
             								<a href="/admin/project/edit/{{ $p->id_project }}"  class="btn btn-warning">Edit</a>
               							<a href="/admin/project/delete/{{ $p->id_project }}"  class="btn btn-danger">Delete</a>
             							</td>
