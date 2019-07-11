@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Project;
 use App\Images;
+use App\Logs;
 use File;
 use Session;
 class ProjectController extends Controller
@@ -21,7 +22,8 @@ class ProjectController extends Controller
 
     public function index(){
         $data['title'] = "Project";
-        $data['list'] = DB::table('module_project')->get();
+        $data['list'] =Project::all();
+           
         return view('content/admin/project/list',$data);
     }
 
@@ -47,7 +49,7 @@ class ProjectController extends Controller
 
     public  function edit($id_project){
         $data['title'] = "Edit Content";
-        $data['edit'] = DB::table('module_project')->where('id_project',$id_project)->get();
+        $data['edit'] = Project::find($id_project);
         return view('content/admin/project/edit',$data);
     }
 
@@ -58,25 +60,26 @@ class ProjectController extends Controller
         $path_upload = 'assets/images/project';
         $form['image'] = '/'.$path_upload.'/'.$file->getClientOriginalName();
         $file->move($path_upload,$file->getClientOriginalName());
-        }
-        DB::table('module_project')->where('id_project',$form['id_project'])->update($form);
+        }        
+        Project::find($form['id_project'])->update($form);
         Session::flash('success','Update Project Success');
         return redirect('/admin/project');
     }
 
     public  function delete($id_project){
-        $project = DB::table('module_project')->where('id_project',$id_project)->first();
+        $project =Project::find($id_project);
         if(!empty($project->image)){
         $path = str_replace('/assets', 'assets',$project->image);
         File::delete($path);
         }
-        DB::table('module_project')->where('id_project',$id_project)->delete();
+
+        Project::find($id_project)->delete();
         Session::flash('success','Delete Project Success');
         return redirect()->back();
     }
     public  function images($id_project){
         $data['title'] = "Images";
-        $data['project'] = DB::table('module_project')->where('id_project',$id_project)->first();
+        $data['project'] =Project::find($id_project);
         $data['list'] = DB::table('module_images')
             ->leftJoin('module_project', 'module_project.id_project', '=', 'module_images.id_image')
             ->select('module_images.*')
@@ -85,12 +88,12 @@ class ProjectController extends Controller
         return view('content/admin/project/images',$data);
     }
     public  function delete_image($id_image){
-        $project = DB::table('module_images')->where('id_image',$id_image)->first();
+        $project =Images::find($id_image);
         if(!empty($project->image)){
         $path = str_replace('/assets', 'assets',$project->image);
         File::delete($path);
         }
-        DB::table('module_images')->where('id_image',$id_image)->delete();
+        Images::find($id_image)->delete();
         Session::flash('success','Delete Image Success');
         return redirect()->back();
     }

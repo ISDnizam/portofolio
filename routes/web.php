@@ -20,6 +20,7 @@ Route::get('admin/blog/edit/{id}', 'admin\BlogController@edit');
 Route::post('admin/blog/action_edit', 'admin\BlogController@action_edit');
 Route::get('admin/blog/delete/{id}', 'admin\BlogController@delete');
 
+Route::get('admin/dashboard', 'admin\DashboardController@index');
 Route::get('admin/project', 'admin\ProjectController@index');
 Route::get('admin/project/add', 'admin\ProjectController@add');
 Route::post('admin/project/action_add', 'admin\ProjectController@action_add');

@@ -37,7 +37,8 @@
                       <thead>
                         <tr>
                           <th>Title</th>
-            							<th>Description</th>
+                          <th>Description</th>
+            							<th>Viewers</th>
             							<th>Created At</th>
             							<th>Opsi</th>
                         </tr>
@@ -47,6 +48,7 @@
                         <tr>
                           <td>{{ $p->title }}</td>
                           <td>{{ substr($p->description, 0, 50) }} </td>
+                          <td>{{ $p->logs->count() }}</td>
             							<td>{{ $p->created_at }}</td>
             							<td>
                             <a href="/admin/project/images/{{ $p->id_project }}"  class="btn btn-primary">View Images</a>

@@ -36,7 +36,7 @@
 				<div class="arlo_tm_section relative" id="about">
 					<div class="arlo_tm_about_wrapper_all">
 						<div class="container">
-							<div class="arlo_tm_title_holder">
+							<div class="arlo_tm_title_holder" style="margin-bottom: -50px">
 								<h3>About Me</h3>
 								<span>Main informations about me</span>
 							</div>
@@ -55,7 +55,7 @@
 										</div>
 									</div>
 									<div class="rightbox">
-										<div class="arlo_tm_mini_title_holder">
+										<div class="arlo_tm_mini_title_holder hidden-xs">
 											<h4>I'm {{$profile->name}} as a <span class="arlo_tm_animation_text_word"></span></h4>
 										</div>
 										<div class="definition">
@@ -89,7 +89,7 @@
 													<a href="/assets/doc/CV-Abul-Nizam-Faisal.pdf" target="_blank"><span>Download CV</span></a>
 												</li>
 												<li class="anchor">
-													<a href="#contact"><span>Send Message</span></a>
+													<a href="#contact" class="btn btn-primary"><span>Send Message</span></a>
 												</li>
 											</ul>
 										</div>
@@ -106,10 +106,10 @@
 					<div class="arlo_tm_skills_wrap">
 						<div class="container">
 							<div class="inner_wrap">
-									<div class="arlo_tm_mini_title_holder">
+									<div class="arlo_tm_mini_title_holder" >
 										<h4>Some About my Abilities</h4>
 									</div>
-											<div class="progress_bar_wrap_total" style="margin-left: 10px">
+											<div class="progress_bar_wrap_total" style="margin-left: 2px;">
 													<div class="arlo_tm_progress_wrap" data-size="small" data-round="c" data-strip="off">
 									
 											@foreach ($skills as $s)
@@ -122,7 +122,7 @@
 
 											</div>
 
-												<div class="progress_bar_wrap_total" style="margin-left: 10px">
+												<div class="progress_bar_wrap_total" style="margin-left: 2px">
 													<div class="arlo_tm_progress_wrap" data-size="small" data-round="c" data-strip="off">
 									
 											@foreach ($other_skills as $s)
@@ -153,8 +153,8 @@
 						<div class="arlo_tm_second_portfolio">
 						<div class="container">
 							<div class="arlo_tm_portfolio_wrap">
-								<div class="arlo_tm_title_holder portfolio">
-									<h3>Creative Works</h3>
+								<div class="arlo_tm_title_holder portfolio"style="margin-bottom: -50px">
+									<h3>Projects</h3>
 									<span>Check out our latest creative works</span>
 								</div>
 								<div class="arlo_tm_portfolio_titles"></div>
@@ -185,7 +185,7 @@
 				<!-- /PORTFOLIO -->
 				
 				<!-- TESTIMONIALS -->
-				<div class="arlo_tm_section hidden-md" id="testimonials">
+				<div class="arlo_tm_section hidden-xs" id="testimonials">
 					<div class="arlo_tm_testimonials_wrapper_all">
 						<div class="arlo_tm_universal_box_wrap">
 							<div class="bg_wrap">
@@ -199,7 +199,7 @@
 											<ul class="arlo_tm_counter_list arlo_tm_miniboxes" style="margin-left:100px; color:white">
 												<li>
 													<div class="inner arlo_tm_minibox">
-														<h3  style="color:white"><span><span class="arlo_tm_counter" data-from="0" data-to="21" data-speed="5000">21</span></span></h3>
+														<h3  style="color:white"><span><span class="arlo_tm_counter" data-from="0" data-to="{{ count($project)}}" data-speed="5000">{{ count($project)}}</span></span></h3>
 														<span  style="color:white">Projects Completed</span>
 													</div>
 												</li>
@@ -211,7 +211,7 @@
 												</li>
 												<li>
 													<div class="inner arlo_tm_minibox">
-														<h3 style="color:white"><span><span class="arlo_tm_counter" data-from="0" data-to="19" data-speed="5000">13</span></span></h3>
+														<h3 style="color:white"><span><span class="arlo_tm_counter" data-from="0" data-to="{{ $total = count($project)-2 }}" data-speed="5000">{{ $total = count($project)-2 }}</span></span></h3>
 														<span style="color:white"> Clients</span>
 													</div>
 												</li>
@@ -272,7 +272,7 @@
 
 		<div class="arlo_tm_section" id="contact" style="margin-top: 60px">
           <div class="container">
-            <div class="arlo_tm_title_holder contact">
+            <div class="arlo_tm_title_holder contact" style="margin-bottom: -50px">
               <h3>Contact Me</h3>
               <span>Get in touch with me</span>
             </div>
@@ -281,10 +281,7 @@
             <div class="arlo_tm_contact_wrap_all">
               <div class="container">
                 <div class="leftbox">
-                  <div class="arlo_tm_mini_title_holder contact">
-                    <h4>Get in Touch</h4>
-                  </div>
-                  <div class="short_info_wrap">
+                  <div class="short_info_wrap hidden-xs">
                     <ul>
                       <li><p><label>Address:</label><span>{{$profile->address}}</span></p></li>
                       <li><p><label>Email:</label><span><a href="mailto:{{$profile->email}}">{{$profile->email}}</a></span></p></li>

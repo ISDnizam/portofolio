@@ -58,7 +58,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">URL</label>
                           <div class="col-sm-9">
-                            <input type="url" class="form-control" name="form[url]"/>
+                            <input type="" class="form-control" name="form[url]"/>
                           </div>
                         </div>
 

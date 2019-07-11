@@ -13,13 +13,13 @@
 						<div class="images_list" >
 							<ul>
 								<li>
-									<img src="{{$blog[0]->image}}" alt="" />
+									<img src="{{$blog->image}}" alt="" />
 								</li>
 								</li>
 							</ul>
 						</div>
 						<center>
-							<h3>{{$blog[0]->title}}</h3>
+							<h3>{{$blog->title}}</h3>
 						</center>
 						
 						<div class="details_wrap"style="margin-top: 50px">
@@ -31,17 +31,17 @@
 									<ul>
 										<li>
 											<span class="first">Category :</span>
-											<span class="second">{{$blog[0]->category}}</span>
+											<span class="second">{{$blog->category}}</span>
 										</li>
 										<li>
 											<span class="first">Created at :</span>
-											<span class="second">{{$blog[0]->created_at}}</span>
+											<span class="second">{{$blog->created_at}}</span>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="rightbox">
-								<p>{{$blog[0]->description}}</p>
+								<p>{{$blog->description}}</p>
 							</div>
 						</div>
 						
